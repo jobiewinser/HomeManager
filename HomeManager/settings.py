@@ -31,6 +31,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 if os.getenv('ENVIRONMENT') == 'development':
     RUNSERVERPLUS_POLLER_RELOADER_INTERVAL = 999
     ALLOWED_HOSTS = ['*']
+    CSRF_TRUSTED_ORIGINS = ['http://192.168.1.86', 'http://manage.winser.uk']
     DEBUG = True
     CSRF_COOKIE_SECURE = False
     SESSION_COOKIE_SECURE = False
@@ -43,7 +44,8 @@ if os.getenv('ENVIRONMENT') == 'development':
     WSGI_APPLICATION = 'HomeManager.wsgi.application'
 
 else:
-    ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS'), '*']
+    ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS')]
+    # CSRF_TRUSTED_ORIGINS = [os.getenv('ALLOWED_HOSTS')]
     DEBUG = False
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
@@ -67,6 +69,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'plex',
+    'energy',
 ]
 
 MIDDLEWARE = [
@@ -161,5 +164,4 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-
-
+ 

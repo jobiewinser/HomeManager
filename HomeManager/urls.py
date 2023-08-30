@@ -16,13 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home', include('home.urls')),
-    # path('energy', include('energy.urls')),
+    path('energy', include('energy.urls')),
     # path('heating', include('heating.urls')),
     path('plex', include('plex.urls')),
     # path('timeline', include('timeline.urls')),
     # path('garden', include('garden.urls')), 
+    path('', RedirectView.as_view(pattern_name='home', permanent=False)),
+
 ]

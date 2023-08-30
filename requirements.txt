@@ -1,0 +1,7 @@
+django==4.1
+python-dotenv==0.17.1
+psycopg2-binary==2.9.3
+python-kasa[speedups]==0.5.3
+
+
+

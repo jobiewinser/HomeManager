@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+{%load home_tags%}
+{%block body%}
+<div class="row">
+    {%for kasa_device in kasa_devices%}
+    <div class="col-3 border m-3 p-2 rounded" style="min-width: 250px" onclick="alert('{{kasa_device.pk}}')"> 
+        <h5 class="elipses-overflow">
+            {%if kasa_device.device_type == 'Plug'%}
+            <i class="fas fa-plug"></i>
+            {%else%}
+            <i class="fas fa-question"></i>
+            {%endif%}
+            {{kasa_device.alias}}
+        </h5>
+        <table>
+            {%with kasa_device.latest_meter_reading as latest_meter_reading%}
+            <tr>
+                <td><div class="pe-2">Now (W)</div></td>
+                <td>{{latest_meter_reading.realtime_power_reading}}</td>
+            </tr>
+            <tr>
+                <td><div class="pe-2">Day (kWh)</div></td>
+                <td>{{latest_meter_reading.day_reading}}</td>
+            </tr>
+            <tr>
+                <td><div class="pe-2">Month (kWh)</div></td>
+                <td>{{latest_meter_reading.month_reading}}</td>
+            </tr>
+            <tr> 
+                <td><small><i>Updated {{latest_meter_reading.updated|today_time_or_date}}</i></small></td>
+            </tr>
+            {%endwith%}
+        </table>
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}
