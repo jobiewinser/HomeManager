@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+{%load home_tags%}
+{%block body%}  
+
+<div class="container m-3">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="card-container">
+                {%for plex_webhook in plex_webhooks%}
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <img src="{{plex_webhook.thumbnail}}" class="img-fluid" alt="Profile Picture">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h5 class="card-title">Card Title</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam lobortis metus odio, et mollis elit consequat ac. Suspendisse ut volutpat sapien, at.</p>
+                                <img src="image.jpg" class="img-fluid" alt="Image">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="{{plex_webhook.plex_account.thumbnail}}" class="img-fluid" alt="Profile Picture">
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            <!-- Add more cards here -->
+            </div>
+        </div>
+        <div class="col">
+            {%for plex_account in plex_accounts%}
+            {{plex_account}}
+            <br>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+
+{%endblock%}

@@ -1,7 +1,10 @@
+wheel==0.41.2
 django==4.1
 python-dotenv==0.17.1
 psycopg2-binary==2.9.3
 python-kasa[speedups]==0.5.3
-
-
-
+pillow==10.0.0 
+Werkzeug==2.0.0
+django-extensions==3.2.1
+cryptography==41.0.3
+pyOpenSSL==23.2.0

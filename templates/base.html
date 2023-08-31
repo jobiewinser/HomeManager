@@ -28,13 +28,13 @@
                         <a class="nav-link{%if request.resolver_match.url_name == 'home'%} active" aria-current="page"{%else%}"{%endif%} href="{%url 'home'%}">Overview</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link{%if request.resolver_match.url_name == 'emergy'%} active" aria-current="page"{%else%}"{%endif%} href="{%url 'energy'%}">Energy</a>
+                        <a class="nav-link{%if request.resolver_match.url_name == 'energy'%} active" aria-current="page"{%else%}"{%endif%} href="{%url 'energy'%}">Energy</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Heating</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Plex</a>
+                        <a class="nav-link{%if request.resolver_match.url_name == 'plex'%} active" aria-current="page"{%else%}"{%endif%} href="{%url 'plex'%}">Plex</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Timeline</a>

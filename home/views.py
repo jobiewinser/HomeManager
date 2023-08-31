@@ -9,14 +9,23 @@ class HomeView(TemplateView):
         return super(HomeView, self).get(request, **kwargs)
     
 class BaseWebhookView(View):
-    def create_webhook_instance(self, request):
-        headers = dict(request.headers) # dict, e.g {"user-agent": "Ombi/4.39.1 (https://ombi.io/)"...}  
-        user_agent = headers.get("User-Agent")
-        url = request._current_scheme_host + request.path
-        json_data = json.loads(request.body)
-        home_models.Webhook.objects.create(
-            headers = headers,
-            json_data = json_data,
-            user_agent = user_agent,
-            url = url,
-        ) 
+    pass
+    # def create_webhook_instance(self, request):
+    #     headers = dict(request.headers) # dict, e.g {"user-agent": "Ombi/4.39.1 (https://ombi.io/)"...}  
+    #     user_agent = headers.get("User-Agent")
+    #     url = request._current_scheme_host + request.path
+    #     json_data = {}
+    #     if request.FILES:
+    #         payload = request.FILES.get('payload')
+    #         if payload: 
+    #             contents = payload.read()
+    #             decoded_contents = contents.decode('utf-8')
+    #             json_data = json.loads(decoded_contents) 
+    #     elif request.body:
+    #         json_data = json.loads(request.body) 
+    #     home_models.Webhook.objects.create(
+    #         headers = headers,
+    #         json_data = json_data,
+    #         user_agent = user_agent,
+    #         url = url,
+    #     ) 
